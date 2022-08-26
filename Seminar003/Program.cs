@@ -68,7 +68,7 @@ Console.Write("Input x coordinate, first point: ");
 double xA = Convert.ToDouble(Console.ReadLine());
 Console.Write("Input y coordinate, first point: ");
 double yA = Convert.ToDouble(Console.ReadLine());
-Console.Write("Input y coordinate, second point: ");
+Console.Write("Input x coordinate, second point: ");
 double xB = Convert.ToDouble(Console.ReadLine());
 Console.Write("Input y coordinate, second point: ");
 double yB = Convert.ToDouble(Console.ReadLine());
