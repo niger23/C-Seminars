@@ -158,18 +158,64 @@
 //  Найдите количество элементов массива, значения
 //   которых лежат в отрезке [10,99].
 
-int [] CreateRandomArray(int size, int minValue, int MaxValue)
+// int [] CreateRandomArray(int size, int minValue, int MaxValue)
+// {
+//     int[] newArray = new int[size];
+
+//     for (int i = 0; i < size; i++)
+//     {
+//         newArray[i] = new Random().Next(minValue, MaxValue +1);
+//     }
+//     return newArray;
+// }
+
+// void ShowArray(int [] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write(array[i] + " ");
+//     }
+//     Console.WriteLine();
+// }
+// int FindElements(int[] array)
+// {
+//     int count = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if(array[i] > 9 && array[i] < 100) count++;
+//     }
+//     return count;
+// }
+
+// Console.Write("Введите размер массива: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите нимимальное значение: ");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите максимальное значение: ");
+// int max = Convert.ToInt32(Console.ReadLine());
+
+// int[] myArray = CreateRandomArray(size,min,max);
+// ShowArray(myArray);
+
+// int sumElement = FindElements(myArray);
+// Console.WriteLine($"Колличество двузначных элементов равно: {sumElement}");
+
+//Найдите произведение пар чисел в одномерном массиве. Парой считаем первый 
+// и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
+
+
+int[] CreateRandomArray(int size, int minValue, int MaxValue)
 {
     int[] newArray = new int[size];
 
     for (int i = 0; i < size; i++)
     {
-        newArray[i] = new Random().Next(minValue, MaxValue +1);
+        newArray[i] = new Random().Next(minValue, MaxValue + 1);
     }
     return newArray;
 }
 
-void ShowArray(int [] array)
+void ShowArray(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -177,14 +223,18 @@ void ShowArray(int [] array)
     }
     Console.WriteLine();
 }
-int FindElements(int[] array)
+
+int[] ResultArray(int[] array)
 {
-    int sum = 0;
-    for (int i = 0; i < array.Length; i++)
+    int sizeNew = array.Length;
+    int size = sizeNew / 2 + 1;
+    if (sizeNew % 2 == 0) size = sizeNew / 2;
+    int[] newArray = new int[size];
+    for (int i = 0; i < size; i++)
     {
-        if(array[i] > 9 && array[i] < 100) sum++;
+        newArray[i] = array[i] * array[sizeNew - i -1];
     }
-    return sum;
+    return newArray;
 }
 
 Console.Write("Введите размер массива: ");
@@ -194,8 +244,8 @@ int min = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите максимальное значение: ");
 int max = Convert.ToInt32(Console.ReadLine());
 
-int[] myArray = CreateRandomArray(size,min,max);
+int[] myArray = CreateRandomArray(size, min, max);
 ShowArray(myArray);
+Console.WriteLine();
 
-int sumElement = FindElements(myArray);
-Console.WriteLine($"Колличество двузначных элементов равно: {sumElement}");
+ShowArray(ResultArray(myArray));
